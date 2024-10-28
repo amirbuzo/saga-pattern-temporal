@@ -1,0 +1,10 @@
+workflow: IADLFulfillmentWorkflow
+server:
+  port: 8083
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/jira-service
+application:
+  name: jira-service
+target: 127.0.0.1:7233

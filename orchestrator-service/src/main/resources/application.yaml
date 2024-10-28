@@ -1,0 +1,10 @@
+workflow: IADLFulfillmentWorkflow
+server:
+  port: '8081'
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/orchestrator-service
+application:
+  name: prRequest-service
+target: 127.0.0.1:7233

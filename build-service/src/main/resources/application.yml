@@ -1,0 +1,11 @@
+workflow: IADLFulfillmentWorkflow
+server:
+  port: '8084'
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/build-service
+simulate_error: 'true'
+application:
+  name: build-service
+target: 127.0.0.1:7233

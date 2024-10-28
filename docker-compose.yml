@@ -1,0 +1,73 @@
+version: '3.8'
+services:
+  mongo-server:
+    image: mongo:5.0
+    container_name: mongo-server
+    ports:
+      - "27017:27017"
+    volumes:
+      - ~/apps/mongo:/data/db
+    network_mode: host
+#    environment:
+#      - MONGO_INITDB_ROOT_USERNAME=root
+#      - MONGO_INITDB_ROOT_PASSWORD=root
+  bitbucket-service:
+    image: iadl/bitbucket-service
+    container_name: bitbucket-service
+    build: ./bitbucket-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - mongo-server
+    environment:
+      server.port: 8083
+      SPRING_PROFILES_ACTIVE: docker
+#      - setup-vault
+    network_mode: host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  build-service:
+    image: iadl/build-service
+    container_name: build-service
+    build: ./build-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      - mongo-server
+    environment:
+      server.port: 8084
+      SPRING_PROFILES_ACTIVE: docker
+#      - setup-vault
+    network_mode: host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  orchestrator-service:
+    image: iadl/orchestrator-service
+    container_name: orchestrator-service
+    build: ./orchestrator-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo-server
+    environment:
+      server.port: 8081
+      SPRING_PROFILES_ACTIVE: docker
+#      - setup-vault
+    network_mode: host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  sonar-service:
+    image: iadl/sonar-service
+    container_name: sonar-service
+    build: ./sonar-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongo-server
+    environment:
+      server.port: 8082
+      SPRING_PROFILES_ACTIVE: docker
+#      - setup-vault   
+    network_mode: host  
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

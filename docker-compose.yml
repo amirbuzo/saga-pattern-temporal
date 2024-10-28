@@ -12,7 +12,7 @@ services:
 #      - MONGO_INITDB_ROOT_USERNAME=root
 #      - MONGO_INITDB_ROOT_PASSWORD=root
   bitbucket-service:
-    image: iadl/bitbucket-service
+    image: saga/bitbucket-service
     container_name: bitbucket-service
     build: ./bitbucket-service
     ports:
@@ -27,7 +27,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   build-service:
-    image: iadl/build-service
+    image: saga/build-service
     container_name: build-service
     build: ./build-service
     ports:
@@ -42,7 +42,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   orchestrator-service:
-    image: iadl/orchestrator-service
+    image: saga/orchestrator-service
     container_name: orchestrator-service
     build: ./orchestrator-service
     ports:
@@ -57,7 +57,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   sonar-service:
-    image: iadl/sonar-service
+    image: saga/sonar-service
     container_name: sonar-service
     build: ./sonar-service
     ports:

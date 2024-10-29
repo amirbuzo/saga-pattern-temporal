@@ -5,7 +5,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/build-service
-simulate_error: 'true'
+simulate_error: 'false'
 application:
   name: build-service
 target: 127.0.0.1:7233

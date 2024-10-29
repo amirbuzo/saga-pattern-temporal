@@ -10,5 +10,6 @@ import com.saga.sonar.persistence.repository.model.SonarResultDocument;
 @Repository
 public interface SonarMongoRepository extends MongoRepository<SonarResultDocument, String> {
     List<SonarResultDocument> findByprRequestId(String prRequestId);
+    
     List<SonarResultDocument> findByBranchId(String prRequestId);
 }

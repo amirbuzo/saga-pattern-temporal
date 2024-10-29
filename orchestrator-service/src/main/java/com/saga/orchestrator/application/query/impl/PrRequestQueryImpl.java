@@ -10,11 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 public class PrRequestQueryImpl implements PrRequestQuery {
-  private final PrRequestRepository prRequestRepository;
-
-  @Override
-  public PrRequest getprRequest(String prRequestId) {
-    log.info("Fetching PrRequestDto for id {}", prRequestId);
-    return prRequestRepository.get(prRequestId);
-  }
+    private final PrRequestRepository prRequestRepository;
+    
+    @Override
+    public PrRequest getprRequest(String prRequestId) {
+        log.info("Fetching PrRequestDto for id {}", prRequestId);
+        return prRequestRepository.get(prRequestId);
+    }
 }

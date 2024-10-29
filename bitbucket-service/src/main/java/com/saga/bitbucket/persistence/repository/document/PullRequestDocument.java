@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,13 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Document("PULL_REQUEST")
 public class PullRequestDocument {
-  @Id
-  private String id;
-
-  private String prRequestId;
-  private String branchId;
-  private Double amount;
-  private String externalId;
-  private String pullRequestStatus;
+    @Id
+    private String id;
+    
+    private String prRequestId;
+    private String branchId;
+    private Double amount;
+    private String externalId;
+    private String pullRequestStatus;
 }
- 

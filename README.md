@@ -41,3 +41,4 @@ docker-compose up
 # Build and Test
 
 clean install
+docker compose up

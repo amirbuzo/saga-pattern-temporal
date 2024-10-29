@@ -11,12 +11,11 @@ import lombok.ToString;
 @ToString
 @Builder
 public class SonarResultDto {
-  private String prRequestId;
-  private String buildId;
-  private String taskId;
-  private String branchId;
-  private String path;
-  private SonarStatus sonarStatus;
-  
- 
+    private String prRequestId;
+    private String buildId;
+    private String taskId;
+    private String branchId;
+    private String path;
+    private SonarStatus sonarStatus;
+    
 }

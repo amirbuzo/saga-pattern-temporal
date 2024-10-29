@@ -9,14 +9,11 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class WorkflowOrchestratorClient {
-  private final ApplicationProperties applicationProperties;
-
-  public WorkflowClient getWorkflowClient() {
-    var workflowServiceStubsOptions =
-        WorkflowServiceStubsOptions.newBuilder()
-            .setTarget(applicationProperties.getTarget())
-            .build();
-    var workflowServiceStubs = WorkflowServiceStubs.newServiceStubs(workflowServiceStubsOptions);
-    return WorkflowClient.newInstance(workflowServiceStubs);
-  }
+    private final ApplicationProperties applicationProperties;
+    
+    public WorkflowClient getWorkflowClient() {
+        var workflowServiceStubsOptions = WorkflowServiceStubsOptions.newBuilder().setTarget(applicationProperties.getTarget()).build();
+        var workflowServiceStubs = WorkflowServiceStubs.newServiceStubs(workflowServiceStubsOptions);
+        return WorkflowClient.newInstance(workflowServiceStubs);
+    }
 }

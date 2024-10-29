@@ -9,9 +9,9 @@ import lombok.ToString;
 @Getter
 @ToString
 public class JiraTaskDTO {
-  private String jiraTaskId;
-  private String branchId;
-  private String user;
-  private String path;
-  private String sonarId;
- }
+    private String jiraTaskId;
+    private String branchId;
+    private String user;
+    private String path;
+    private String sonarId;
+}

@@ -10,13 +10,12 @@ import com.saga.sonar.persistence.repository.model.SonarResultDocument;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class SonarPersistableMapper {
-
-  public static final SonarPersistableMapper MAPPER =
-      Mappers.getMapper(SonarPersistableMapper.class);
-
-  @Mapping(source = "buildId", target = "id")
-  public abstract SonarResultDocument map(SonarResultDto build);
-
-  @Mapping(source = "id", target = "buildId")
-  public abstract SonarResultDto map(SonarResultDocument buildPersistable);
+    
+    public static final SonarPersistableMapper MAPPER = Mappers.getMapper(SonarPersistableMapper.class);
+    
+    @Mapping(source = "buildId", target = "id")
+    public abstract SonarResultDocument map(SonarResultDto build);
+    
+    @Mapping(source = "id", target = "buildId")
+    public abstract SonarResultDto map(SonarResultDocument buildPersistable);
 }

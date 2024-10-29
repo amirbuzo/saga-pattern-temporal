@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Slf4j
 @SpringBootApplication
 public class BuildServiceApplication {
-
-  public static void main(String[] args) {
-    SpringApplication.run(BuildServiceApplication.class, args);
-  }
+    
+    public static void main(String[] args) {
+        SpringApplication.run(BuildServiceApplication.class, args);
+    }
 }

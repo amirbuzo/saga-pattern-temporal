@@ -6,6 +6,7 @@ import io.temporal.activity.ActivityInterface;
 
 @ActivityInterface
 public interface BuildActivities {
-  void buildProject(JiraTaskDTO prRequestDTO);
-  void cancelCleanProject(JiraTaskDTO prRequestDTO);
+    void buildProject(JiraTaskDTO prRequestDTO);
+    
+    void cancelCleanProject(JiraTaskDTO prRequestDTO);
 }

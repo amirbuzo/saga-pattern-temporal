@@ -12,6 +12,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public class PrResponse {
-  private String prRequestId;
-  private PrStatus prRequestStatus;
+    private String prRequestId;
+    private PrStatus prRequestStatus;
 }

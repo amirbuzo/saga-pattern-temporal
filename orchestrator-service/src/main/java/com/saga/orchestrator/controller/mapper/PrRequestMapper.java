@@ -9,8 +9,8 @@ import com.saga.orchestrator.controller.model.PrRequestDto;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class PrRequestMapper {
-
-  public static final PrRequestMapper MAPPER = Mappers.getMapper(PrRequestMapper.class);
-
-  public abstract PrRequest map(PrRequestDto request);
+    
+    public static final PrRequestMapper MAPPER = Mappers.getMapper(PrRequestMapper.class);
+    
+    public abstract PrRequest map(PrRequestDto request);
 }

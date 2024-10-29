@@ -11,9 +11,9 @@ import lombok.ToString;
 @ToString
 @Builder
 public class BuildArtifactDto {
-  private String buildId;
-  private String prRequestId;
-  private String branchId;
-  private String trackingId;
-  private String path;
+    private String buildId;
+    private String prRequestId;
+    private String branchId;
+    private String trackingId;
+    private String path;
 }

@@ -10,13 +10,12 @@ import com.saga.build.persistence.repository.document.BuildArtifactDocument;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class BuildPersistableMapper {
-
-  public static final BuildPersistableMapper MAPPER =
-      Mappers.getMapper(BuildPersistableMapper.class);
-
-  @Mapping(source = "buildId", target = "id")
-  public abstract BuildArtifactDocument map(BuildArtifactDto build);
-
-  @Mapping(source = "id", target = "buildId")
-  public abstract BuildArtifactDto map(BuildArtifactDocument buildPersistable);
+    
+    public static final BuildPersistableMapper MAPPER = Mappers.getMapper(BuildPersistableMapper.class);
+    
+    @Mapping(source = "buildId", target = "id")
+    public abstract BuildArtifactDocument map(BuildArtifactDto build);
+    
+    @Mapping(source = "id", target = "buildId")
+    public abstract BuildArtifactDto map(BuildArtifactDocument buildPersistable);
 }

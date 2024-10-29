@@ -16,32 +16,30 @@ import com.saga.sonar.persistence.repository.mongo.SonarMongoRepository;
 @Configuration
 @Setter
 public class SonarServiceAppConfig {
-
-  @Bean
-  public SonarWorker buildWorker(SonarMongoRepository buildJpaRepository) {
-    return new SonarWorker(
-        reserveSonarActivity(buildJpaRepository), workflowOrchestratorClient());
-  }
-
-  @Bean
-  public SonarActivities reserveSonarActivity(
-      SonarMongoRepository buildJpaRepository) {
-    return new SonarActivitiesImpl(buildRepository(buildJpaRepository));
-  }
-
-  @Bean
-  @ConfigurationProperties
-  public ApplicationProperties applicationProperties() {
-    return new ApplicationProperties();
-  }
-
-  @Bean
-  public WorkflowOrchestratorClient workflowOrchestratorClient() {
-    return new WorkflowOrchestratorClient(applicationProperties());
-  }
-
-  @Bean
-  public SonarRepository buildRepository(SonarMongoRepository buildJpaRepository) {
-    return new SonarRepositoryImpl(buildJpaRepository);
-  }
+    
+    @Bean
+    public SonarWorker buildWorker(SonarMongoRepository buildJpaRepository) {
+        return new SonarWorker(reserveSonarActivity(buildJpaRepository), workflowOrchestratorClient());
+    }
+    
+    @Bean
+    public SonarActivities reserveSonarActivity(SonarMongoRepository buildJpaRepository) {
+        return new SonarActivitiesImpl(buildRepository(buildJpaRepository));
+    }
+    
+    @Bean
+    @ConfigurationProperties
+    public ApplicationProperties applicationProperties() {
+        return new ApplicationProperties();
+    }
+    
+    @Bean
+    public WorkflowOrchestratorClient workflowOrchestratorClient() {
+        return new WorkflowOrchestratorClient(applicationProperties());
+    }
+    
+    @Bean
+    public SonarRepository buildRepository(SonarMongoRepository buildJpaRepository) {
+        return new SonarRepositoryImpl(buildJpaRepository);
+    }
 }

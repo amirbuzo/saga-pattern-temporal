@@ -11,32 +11,29 @@ import com.saga.orchestrator.persistence.repository.mongo.PrRequestDocumentRepos
 
 @Slf4j
 public class PrRequestRepositoryImpl implements PrRequestRepository {
-
-  private final PrRequestDocumentRepository prRequestMongoRepository;
-
-  public PrRequestRepositoryImpl(PrRequestDocumentRepository prRequestMongoRepository) {
-    this.prRequestMongoRepository = prRequestMongoRepository;
-  }
-
-  @Override
-  @Transactional
-  public PrRequest save(PrRequest prRequest) {
-    log.info("Saving PrRequestDto");
-    var prRequestPersistable = PrRequestMapper.MAPPER.map(prRequest);
-    prRequestPersistable = prRequestMongoRepository.save(prRequestPersistable);
-    log.info("PrRequestDto saved, prRequest {}", prRequestPersistable);
-    return PrRequestMapper.MAPPER.map(prRequestPersistable);
-  }
-
-  @Override
-  @Transactional
-  public PrRequest get(String prRequestId) {
-    log.info("Fetching prRequest for id {}", prRequestId);
-    var prRequestPersistable =
-        prRequestMongoRepository
-            .findById(prRequestId)
-            .orElseThrow(() -> new ResourceNotFoundException("PrRequestDto not found"));
-    log.info("Fetched prRequest, {}", prRequestPersistable);
-    return PrRequestMapper.MAPPER.map(prRequestPersistable);
-  }
+    
+    private final PrRequestDocumentRepository prRequestMongoRepository;
+    
+    public PrRequestRepositoryImpl(PrRequestDocumentRepository prRequestMongoRepository) {
+        this.prRequestMongoRepository = prRequestMongoRepository;
+    }
+    
+    @Override
+    @Transactional
+    public PrRequest save(PrRequest prRequest) {
+        log.info("Saving PrRequestDto");
+        var prRequestPersistable = PrRequestMapper.MAPPER.map(prRequest);
+        prRequestPersistable = prRequestMongoRepository.save(prRequestPersistable);
+        log.info("PrRequestDto saved, prRequest {}", prRequestPersistable);
+        return PrRequestMapper.MAPPER.map(prRequestPersistable);
+    }
+    
+    @Override
+    @Transactional
+    public PrRequest get(String prRequestId) {
+        log.info("Fetching prRequest for id {}", prRequestId);
+        var prRequestPersistable = prRequestMongoRepository.findById(prRequestId).orElseThrow(() -> new ResourceNotFoundException("PrRequestDto not found"));
+        log.info("Fetched prRequest, {}", prRequestPersistable);
+        return PrRequestMapper.MAPPER.map(prRequestPersistable);
+    }
 }

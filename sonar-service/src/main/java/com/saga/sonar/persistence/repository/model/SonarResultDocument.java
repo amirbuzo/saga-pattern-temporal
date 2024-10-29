@@ -9,19 +9,18 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
- 
 @ToString
 @Setter
 @Getter
 @Document("SONAR_RESULT")
 public class SonarResultDocument {
-  
-  @Id
-  private String id;
-
-  private String prRequestId;
-  private String branchId;
-  private String path;
-  private String taskId;
-  private SonarStatus sonarStatus;
+    
+    @Id
+    private String id;
+    
+    private String prRequestId;
+    private String branchId;
+    private String path;
+    private String taskId;
+    private SonarStatus sonarStatus;
 }

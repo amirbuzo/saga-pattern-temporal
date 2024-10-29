@@ -1,5 +1,6 @@
 package com.saga.sonar.resource;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,13 +15,15 @@ import java.util.List;
 
 @RestController
 @Slf4j
+@AllArgsConstructor
 public class SonarController {
-  @Autowired private SonarRepository sonarRepository;
-
-  @GetMapping("/sonar")
-  public ResponseEntity<List<SonarResultDto>> listSonar() {
-    log.info("Getting all sonar checks..");
-    List<SonarResultDto> sonar = sonarRepository.getAll();
-    return new ResponseEntity<>(sonar, HttpStatus.OK);
-  }
+    
+    private final SonarRepository sonarRepository;
+    
+    @GetMapping("/sonar")
+    public ResponseEntity<List<SonarResultDto>> listSonar() {
+        log.info("Getting all sonar checks..");
+        List<SonarResultDto> sonar = sonarRepository.getAll();
+        return new ResponseEntity<>(sonar, HttpStatus.OK);
+    }
 }

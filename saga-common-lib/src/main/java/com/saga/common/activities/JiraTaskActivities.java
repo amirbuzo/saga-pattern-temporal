@@ -6,6 +6,7 @@ import io.temporal.activity.ActivityInterface;
 
 @ActivityInterface
 public interface JiraTaskActivities {
-  void completeTask(JiraTaskDTO prRequest);
-  void failTask(JiraTaskDTO prRequestDTO);
+    void completeTask(JiraTaskDTO prRequest);
+    
+    void failTask(JiraTaskDTO prRequestDTO);
 }

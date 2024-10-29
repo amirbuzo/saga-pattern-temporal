@@ -24,50 +24,49 @@ import com.saga.orchestrator.persistence.repository.mongo.PrRequestDocumentRepos
 @Configuration
 @Setter
 public class OrchestratorServiceAppConfig {
-
-  @Bean
-  public PrRequestFactory prRequestFactory(PrRequestDocumentRepository prRequestJpaRepository) {
-    return new PrRequestFactoryImpl(prRequestCommand(prRequestJpaRepository), prRequestQuery(prRequestJpaRepository));
-  }
-
-  private PrRequestQuery prRequestQuery(PrRequestDocumentRepository prRequestJpaRepository) {
-    return new PrRequestQueryImpl(prRequestRepository(prRequestJpaRepository));
-  }
-
-  @Bean
-  public PullRequestCommand prRequestCommand(PrRequestDocumentRepository prRequestJpaRepository) {
-    return new PrRequestCommandImpl(prRequestRepository(prRequestJpaRepository), workflowOrchestrator());
-  }
-
-  @Bean
-  public PrWorker prRequestWorker(PrRequestDocumentRepository prRequestJpaRepository) {
-    return new PrWorker(
-        createPendingprRequestActivity(prRequestJpaRepository), workflowOrchestratorClient());
-  }
-
-  @Bean
-  public JiraTaskActivities createPendingprRequestActivity(PrRequestDocumentRepository prRequestJpaRepository) {
-    return new JiraTaskActivitiesImpl(prRequestRepository(prRequestJpaRepository));
-  }
-
-  @Bean
-  @ConfigurationProperties
-  public ApplicationProperties applicationProperties() {
-    return new ApplicationProperties();
-  }
-
-  @Bean
-  public WorkflowOrchestratorClient workflowOrchestratorClient() {
-    return new WorkflowOrchestratorClient(applicationProperties());
-  }
-
-  @Bean
-  public PrRequestRepository prRequestRepository(PrRequestDocumentRepository prRequestJpaRepository) {
-    return new PrRequestRepositoryImpl(prRequestJpaRepository);
-  }
-
-  @Bean
-  public WorkflowOrchestrator workflowOrchestrator() {
-    return new WorkflowOrchestratorImpl(workflowOrchestratorClient(), applicationProperties());
-  }
+    
+    @Bean
+    public PrRequestFactory prRequestFactory(PrRequestDocumentRepository prRequestJpaRepository) {
+        return new PrRequestFactoryImpl(prRequestCommand(prRequestJpaRepository), prRequestQuery(prRequestJpaRepository));
+    }
+    
+    private PrRequestQuery prRequestQuery(PrRequestDocumentRepository prRequestJpaRepository) {
+        return new PrRequestQueryImpl(prRequestRepository(prRequestJpaRepository));
+    }
+    
+    @Bean
+    public PullRequestCommand prRequestCommand(PrRequestDocumentRepository prRequestJpaRepository) {
+        return new PrRequestCommandImpl(prRequestRepository(prRequestJpaRepository), workflowOrchestrator());
+    }
+    
+    @Bean
+    public PrWorker prRequestWorker(PrRequestDocumentRepository prRequestJpaRepository) {
+        return new PrWorker(createPendingprRequestActivity(prRequestJpaRepository), workflowOrchestratorClient());
+    }
+    
+    @Bean
+    public JiraTaskActivities createPendingprRequestActivity(PrRequestDocumentRepository prRequestJpaRepository) {
+        return new JiraTaskActivitiesImpl(prRequestRepository(prRequestJpaRepository));
+    }
+    
+    @Bean
+    @ConfigurationProperties
+    public ApplicationProperties applicationProperties() {
+        return new ApplicationProperties();
+    }
+    
+    @Bean
+    public WorkflowOrchestratorClient workflowOrchestratorClient() {
+        return new WorkflowOrchestratorClient(applicationProperties());
+    }
+    
+    @Bean
+    public PrRequestRepository prRequestRepository(PrRequestDocumentRepository prRequestJpaRepository) {
+        return new PrRequestRepositoryImpl(prRequestJpaRepository);
+    }
+    
+    @Bean
+    public WorkflowOrchestrator workflowOrchestrator() {
+        return new WorkflowOrchestratorImpl(workflowOrchestratorClient(), applicationProperties());
+    }
 }

@@ -11,16 +11,16 @@ import jakarta.validation.constraints.NotNull;
 @Getter
 @ToString
 public class PrRequestDto {
-
-  @NotNull(message = "Branch ID is required.")
-  @NotBlank
-  private String branchId;
-
-  @NotNull(message = "User is required.")
-  @NotBlank
-  private String user;
-
-  @NotNull(message = "Path is required.")
-  @NotBlank
-  private String path;
+    
+    @NotNull(message = "Branch ID is required.")
+    @NotBlank
+    private String branchId;
+    
+    @NotNull(message = "User is required.")
+    @NotBlank
+    private String user;
+    
+    @NotNull(message = "Path is required.")
+    @NotBlank
+    private String path;
 }

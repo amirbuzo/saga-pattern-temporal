@@ -10,13 +10,12 @@ import com.saga.orchestrator.persistence.repository.model.PrRequestDocument;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class PrRequestMapper {
-
-  public static final PrRequestMapper MAPPER =
-      Mappers.getMapper(PrRequestMapper.class);
-
-  @Mapping(source = "prRequestId", target = "id")
-  public abstract PrRequestDocument map(PrRequest prRequest);
-
-  @Mapping(source = "id", target = "prRequestId")
-  public abstract PrRequest map(PrRequestDocument prRequestPersistable);
+    
+    public static final PrRequestMapper MAPPER = Mappers.getMapper(PrRequestMapper.class);
+    
+    @Mapping(source = "prRequestId", target = "id")
+    public abstract PrRequestDocument map(PrRequest prRequest);
+    
+    @Mapping(source = "id", target = "prRequestId")
+    public abstract PrRequest map(PrRequestDocument prRequestPersistable);
 }

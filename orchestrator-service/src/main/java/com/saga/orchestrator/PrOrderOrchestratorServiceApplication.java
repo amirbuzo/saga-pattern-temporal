@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Slf4j
 @SpringBootApplication
 public class PrOrderOrchestratorServiceApplication {
-
-  public static void main(String[] args) {
-    SpringApplication.run(PrOrderOrchestratorServiceApplication.class, args);
-  }
+    
+    public static void main(String[] args) {
+        SpringApplication.run(PrOrderOrchestratorServiceApplication.class, args);
+    }
 }

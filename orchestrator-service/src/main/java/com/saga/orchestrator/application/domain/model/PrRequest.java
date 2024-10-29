@@ -9,9 +9,9 @@ import lombok.ToString;
 @Getter
 @ToString
 public class PrRequest {
-  private String prRequestId;
-  private String branchId;
-  private String user;
-  private String path;
-  private PrStatus prRequestStatus;
+    private String prRequestId;
+    private String branchId;
+    private String user;
+    private String path;
+    private PrStatus prRequestStatus;
 }

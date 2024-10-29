@@ -14,41 +14,39 @@ import com.saga.build.infrastructure.temporal.workflow.activity.impl.BuildActivi
 import com.saga.build.persistence.repository.BuildRepositoryImpl;
 import com.saga.build.persistence.repository.mongo.BuildMongoRepository;
 import com.saga.common.activities.BuildActivities;
- 
 
 @Configuration
 @Setter
 public class BuildServiceAppConfig {
-
-  @Bean
-  public BuildWorker buildWorker(BuildMongoRepository buildMongoRepository) {
-    return new BuildWorker(
-        buildProjectActivity(buildMongoRepository), workflowOrchestratorClient());
-  }
-
-  @Bean
-  public BuildActivities buildProjectActivity(BuildMongoRepository buildMongoRepository) {
-    return new BuildActivitiesImpl(buildService(), buildRepository(buildMongoRepository));
-  }
-
-  @Bean
-  public BuildService buildService() {
-    return new BuildArtifactServiceImpl(applicationProperties());
-  }
-
-  @Bean
-  @ConfigurationProperties
-  public ApplicationProperties applicationProperties() {
-    return new ApplicationProperties();
-  }
-
-  @Bean
-  public WorkflowOrchestratorClient workflowOrchestratorClient() {
-    return new WorkflowOrchestratorClient(applicationProperties());
-  }
-
-  @Bean
-  public BuildArtifactRepository buildRepository(BuildMongoRepository buildMongoRepository) {
-    return new BuildRepositoryImpl(buildMongoRepository);
-  }
+    
+    @Bean
+    public BuildWorker buildWorker(BuildMongoRepository buildMongoRepository) {
+        return new BuildWorker(buildProjectActivity(buildMongoRepository), workflowOrchestratorClient());
+    }
+    
+    @Bean
+    public BuildActivities buildProjectActivity(BuildMongoRepository buildMongoRepository) {
+        return new BuildActivitiesImpl(buildService(), buildRepository(buildMongoRepository));
+    }
+    
+    @Bean
+    public BuildService buildService() {
+        return new BuildArtifactServiceImpl(applicationProperties());
+    }
+    
+    @Bean
+    @ConfigurationProperties
+    public ApplicationProperties applicationProperties() {
+        return new ApplicationProperties();
+    }
+    
+    @Bean
+    public WorkflowOrchestratorClient workflowOrchestratorClient() {
+        return new WorkflowOrchestratorClient(applicationProperties());
+    }
+    
+    @Bean
+    public BuildArtifactRepository buildRepository(BuildMongoRepository buildMongoRepository) {
+        return new BuildRepositoryImpl(buildMongoRepository);
+    }
 }

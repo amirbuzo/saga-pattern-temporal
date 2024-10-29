@@ -13,35 +13,33 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class WorkflowOrchestratorImpl implements WorkflowOrchestrator {
-
-  private final WorkflowOrchestratorClient workflowOrchestratorClient;
-  private final ApplicationProperties applicationProperties;
-
-  @Override
-  public void createprRequest(PrRequest prRequest) {
-
-    var prRequestDTO = map(prRequest);
-
-    var workflowClient = workflowOrchestratorClient.getWorkflowClient();
-    var prRequestFulfillmentWorkflow =
-        workflowClient.newWorkflowStub(
-            IADLFulfillmentWorkflow.class,
-            WorkflowOptions.newBuilder()
-                .setWorkflowId(applicationProperties.getWorkflow() + "-" + prRequestDTO.getJiraTaskId())
-                .setTaskQueue(TaskQueue.IADL_FULFILLMENT_WORKFLOW_TASK_QUEUE.name())
-                .build());
-    // Execute Sync
-    //    prRequestFulfillmentWorkflow.createprRequest(prRequestDTO);
-    // Async execution
-    WorkflowClient.start(prRequestFulfillmentWorkflow::createprRequest, prRequestDTO);
-  }
-
-  private JiraTaskDTO map(PrRequest prRequest) {
-    var prRequestDTO = new JiraTaskDTO();
-    prRequestDTO.setJiraTaskId(prRequest.getPrRequestId());
-    prRequestDTO.setBranchId(prRequest.getBranchId());
-    prRequestDTO.setUser(prRequest.getUser());
-    prRequestDTO.setPath(prRequest.getPath());
-    return prRequestDTO;
-  } 
+    
+    private final WorkflowOrchestratorClient workflowOrchestratorClient;
+    private final ApplicationProperties applicationProperties;
+    
+    @Override
+    public void createprRequest(PrRequest prRequest) {
+        
+        var prRequestDTO = map(prRequest);
+        
+        var workflowClient = workflowOrchestratorClient.getWorkflowClient();
+        var prRequestFulfillmentWorkflow = workflowClient.newWorkflowStub(IADLFulfillmentWorkflow.class,
+                WorkflowOptions.newBuilder().setWorkflowId(applicationProperties.getWorkflow() + "-" + prRequestDTO.getJiraTaskId())
+                        .setTaskQueue(TaskQueue.IADL_FULFILLMENT_WORKFLOW_TASK_QUEUE.name()).build());
+        /**
+         * Execute Sync
+         * prRequestFulfillmentWorkflow.createprRequest(prRequestDTO);
+         */
+        // Async execution
+        WorkflowClient.start(prRequestFulfillmentWorkflow::createprRequest, prRequestDTO);
+    }
+    
+    private JiraTaskDTO map(PrRequest prRequest) {
+        var prRequestDTO = new JiraTaskDTO();
+        prRequestDTO.setJiraTaskId(prRequest.getPrRequestId());
+        prRequestDTO.setBranchId(prRequest.getBranchId());
+        prRequestDTO.setUser(prRequest.getUser());
+        prRequestDTO.setPath(prRequest.getPath());
+        return prRequestDTO;
+    }
 }

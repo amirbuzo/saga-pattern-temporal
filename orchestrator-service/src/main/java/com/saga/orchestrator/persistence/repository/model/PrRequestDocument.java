@@ -12,12 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Document("PULL_REQUEST_DOCUMENT")
 public class PrRequestDocument {
-  
-	@Id
-  private String id;
-
-  private String branchId;
-  private String prRequestStatus;
-  private String user;
-  private String path;
+    
+    @Id
+    private String id;
+    
+    private String branchId;
+    private String prRequestStatus;
+    private String user;
+    private String path;
 }

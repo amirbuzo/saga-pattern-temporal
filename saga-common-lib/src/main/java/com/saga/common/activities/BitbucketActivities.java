@@ -6,6 +6,7 @@ import io.temporal.activity.ActivityInterface;
 
 @ActivityInterface
 public interface BitbucketActivities {
-  void requestPr(JiraTaskDTO prRequestDTO);
-  void cancelCleanPr(JiraTaskDTO prRequestDTO);
+    void requestPr(JiraTaskDTO prRequestDTO);
+    
+    void cancelCleanPr(JiraTaskDTO prRequestDTO);
 }

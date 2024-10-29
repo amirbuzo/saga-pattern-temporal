@@ -17,12 +17,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 public class BuildController {
-  private final BuildArtifactRepository buildRepository;
-
-  @GetMapping("/build")
-  public ResponseEntity<List<BuildArtifactDto>> listBuildment() {
-    log.info("Getting all builds..");
-    List<BuildArtifactDto> builds = buildRepository.getAll();
-    return new ResponseEntity<>(builds, HttpStatus.OK);
-  }
+    private final BuildArtifactRepository buildRepository;
+    
+    @GetMapping("/build")
+    public ResponseEntity<List<BuildArtifactDto>> listBuildment() {
+        log.info("Getting all builds..");
+        List<BuildArtifactDto> builds = buildRepository.getAll();
+        return new ResponseEntity<>(builds, HttpStatus.OK);
+    }
 }

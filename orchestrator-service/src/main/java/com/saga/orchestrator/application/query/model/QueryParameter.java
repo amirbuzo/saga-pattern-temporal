@@ -6,5 +6,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class QueryParameter {
-  private String status;
+    private String status;
 }

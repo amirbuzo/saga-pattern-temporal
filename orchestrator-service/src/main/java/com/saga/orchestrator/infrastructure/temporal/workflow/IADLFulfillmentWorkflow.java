@@ -7,6 +7,6 @@ import io.temporal.workflow.WorkflowMethod;
 
 @WorkflowInterface
 public interface IADLFulfillmentWorkflow {
-  @WorkflowMethod
-  void createprRequest(JiraTaskDTO prRequestDTO);
+    @WorkflowMethod
+    void createprRequest(JiraTaskDTO prRequestDTO);
 }

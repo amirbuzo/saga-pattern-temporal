@@ -14,27 +14,26 @@ import com.saga.sonar.infrastructure.temporal.orchestrator.WorkflowOrchestratorC
 @Slf4j
 @RequiredArgsConstructor
 public class SonarWorker {
-
-  private final SonarActivities buildActivities;
-  private final WorkflowOrchestratorClient workflowOrchestratorClient;
-
-  @PostConstruct
-  public void createWorker() {
-
-    log.info("Registering worker..");
-
-    var workerOptions = WorkerOptions.newBuilder().build();
-
-    var workflowClient = workflowOrchestratorClient.getWorkflowClient();
-
-    var workerFactory = WorkerFactory.newInstance(workflowClient);
-    var worker =
-        workerFactory.newWorker(TaskQueue.SONAR_ACTIVITY_TASK_QUEUE.name(), workerOptions);
-
-    worker.registerActivitiesImplementations(buildActivities);
-
-    workerFactory.start();
-
-    log.info("SonarResultDto worker started..");
-  }
+    
+    private final SonarActivities buildActivities;
+    private final WorkflowOrchestratorClient workflowOrchestratorClient;
+    
+    @PostConstruct
+    public void createWorker() {
+        
+        log.info("Registering worker..");
+        
+        var workerOptions = WorkerOptions.newBuilder().build();
+        
+        var workflowClient = workflowOrchestratorClient.getWorkflowClient();
+        
+        var workerFactory = WorkerFactory.newInstance(workflowClient);
+        var worker = workerFactory.newWorker(TaskQueue.SONAR_ACTIVITY_TASK_QUEUE.name(), workerOptions);
+        
+        worker.registerActivitiesImplementations(buildActivities);
+        
+        workerFactory.start();
+        
+        log.info("SonarResultDto worker started..");
+    }
 }

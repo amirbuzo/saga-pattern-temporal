@@ -6,6 +6,7 @@ import io.temporal.activity.ActivityInterface;
 
 @ActivityInterface
 public interface SonarActivities {
-  boolean checkSonar(JiraTaskDTO prRequestDTO);
-  void cleanSonar(JiraTaskDTO prRequestDTO);
+    boolean checkSonar(JiraTaskDTO prRequestDTO);
+    
+    void cleanSonar(JiraTaskDTO prRequestDTO);
 }

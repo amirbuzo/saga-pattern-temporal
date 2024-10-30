@@ -1,0 +1,595 @@
+{
+	"info": {
+		"_postman_id": "869844b3-145c-412f-b9ed-83927f8b80ec",
+		"name": "Iadl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "3023116"
+	},
+	"item": [
+		{
+			"name": "Orchestrator",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Refresh-Token",
+						"value": "{{refresh_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Username",
+						"value": "admin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "AcuTraceId",
+						"value": "1ss",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sessionState",
+						"value": "s",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Jti",
+						"value": "32",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Sections",
+						"value": "section",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Widgets",
+						"value": "widgets",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "enableFilter",
+						"value": "true",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"branchId\":15,\r\n  \"user\": \"amir\",\r\n  \"path\": \"feature/Amir15\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/pr"
+			},
+			"response": []
+		},
+		{
+			"name": "Get prs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Refresh-Token",
+						"value": "{{refresh_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Username",
+						"value": "admin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "AcuTraceId",
+						"value": "1ss",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sessionState",
+						"value": "s",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Jti",
+						"value": "32",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Sections",
+						"value": "section",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Widgets",
+						"value": "widgets",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "enableFilter",
+						"value": "true",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"branchId\":3290131,\r\n  \"user\": \"amir\",\r\n  \"path\": \"feature/Amir\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8081/pr"
+			},
+			"response": []
+		},
+		{
+			"name": "Get prs ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Refresh-Token",
+						"value": "{{refresh_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Username",
+						"value": "admin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "AcuTraceId",
+						"value": "1ss",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sessionState",
+						"value": "s",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Jti",
+						"value": "32",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Sections",
+						"value": "section",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Widgets",
+						"value": "widgets",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "enableFilter",
+						"value": "true",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"branchId\":3290131,\r\n  \"user\": \"amir\",\r\n  \"path\": \"feature/Amir\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8081/pr/6544de4de0670e0bb993fe15"
+			},
+			"response": []
+		},
+		{
+			"name": "Build",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Refresh-Token",
+						"value": "{{refresh_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Username",
+						"value": "admin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "AcuTraceId",
+						"value": "1ss",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sessionState",
+						"value": "s",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Jti",
+						"value": "32",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Sections",
+						"value": "section",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Widgets",
+						"value": "widgets",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "enableFilter",
+						"value": "true",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"branchId\":3290131,\r\n  \"user\": \"amir\",\r\n  \"path\": \"feature/Amir\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8084/build"
+			},
+			"response": []
+		},
+		{
+			"name": "Sonar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Refresh-Token",
+						"value": "{{refresh_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Username",
+						"value": "admin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "AcuTraceId",
+						"value": "1ss",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sessionState",
+						"value": "s",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Jti",
+						"value": "32",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Sections",
+						"value": "section",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Widgets",
+						"value": "widgets",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "enableFilter",
+						"value": "true",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"branchId\":3290131,\r\n  \"user\": \"amir\",\r\n  \"path\": \"feature/Amir\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8082/sonar"
+			},
+			"response": []
+		},
+		{
+			"name": "Jira",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Refresh-Token",
+						"value": "{{refresh_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Username",
+						"value": "admin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "AcuTraceId",
+						"value": "1ss",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sessionState",
+						"value": "s",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Jti",
+						"value": "32",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Role",
+						"value": "R_ACCESS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Sections",
+						"value": "section",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forward-Widgets",
+						"value": "widgets",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "enableFilter",
+						"value": "true",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"branchId\":3290131,\r\n  \"user\": \"amir\",\r\n  \"path\": \"feature/Amir\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8083/jira"
+			},
+			"response": []
+		}
+	]
+}

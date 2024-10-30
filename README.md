@@ -35,7 +35,7 @@ On local Docker
 ````commandline
 git clone https://github.com/temporalio/docker-compose.git
 cd  docker-compose
-docker-compose up
+docker-compose up to run all services including temporal
 ````
 
 # Build and Test
